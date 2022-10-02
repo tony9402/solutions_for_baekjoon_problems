@@ -144,7 +144,10 @@ def main(pr_number, only_language=False):
     files = get_pr_files(pr_number)
     if len(files) > 1:
         raise Exception("No 1 PR 1 File")
-    analyze(files[0])
+    if only_language:
+        analyze(files[0])
+        return
+    run_command(f"git checkout FETCH_HEAD") 
     check_alreay_exist_solution(files[0])
     judge_result = judge(files[0])
     if not judge_result:
