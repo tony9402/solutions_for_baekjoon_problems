@@ -147,8 +147,8 @@ def main(pr_number, only_language=False):
     if only_language:
         analyze(files[0])
         return
-    run_command(f"git checkout FETCH_HEAD") 
     check_alreay_exist_solution(files[0])
+    run_command(f"git checkout FETCH_HEAD") 
     judge_result = judge(files[0])
     if not judge_result:
         raise Exception("Wrong Example")
