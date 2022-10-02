@@ -43,7 +43,7 @@ def run_command(cmd):
 
 def get_pr_files(pr_number):
     cmd = f"git fetch origin +refs/pull/{pr_number}/merge"
-    run_commmand(cmd) 
+    run_command(cmd) 
     cmd = f"git --no-paper diff --name-only FETCH_HEAD $(git merge-base FETCH_HEAD main)"
     files = [file.strip() for file in run_command(cmd).split() if file.strip() != ""]
     return files
