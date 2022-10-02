@@ -28,6 +28,9 @@ jobs:
         - name: Check Solution Language
           run: |
             python scripts/check_pull_request.py --pr_number ${{ github.event.number }} --check_language
+        - name: setting label
+          run: |
+            echo "SOLUTION_LANG=`head -1 label`" >> $GITHUB_ENV
         - name: add Label
           if: contains(github.event.pull_request.labels.*.name, 'Solution') == false
           uses: actions/github-script@v4
