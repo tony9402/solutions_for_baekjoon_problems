@@ -1,3 +1,6 @@
+// Authored by : vswngjs
+// Co-authored by : -
+// Link : http://boj.kr/a2fb7c4e954d42f4bfabc04bbd2973ba
 import sys
 
 def input():
