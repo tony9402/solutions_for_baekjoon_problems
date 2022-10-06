@@ -10,24 +10,18 @@ int main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	int n = 0;
-	int sum = 0;
+	int n; cin >> n;
 	vector<int> sum_vector;
-
-	cin >> n;
 
 	sum_vector.push_back(0);
 
 	for (int i = 0; i < n; i++) {
 		int tmp = 0;
 		cin >> tmp;
-		sum += tmp;
-		sum_vector.push_back(sum);  // 누적 합을 저장
+		sum_vector.push_back(sum_vector.back() + tmp);  // 누적 합을 저장
 	}
 
-	int m = 0;
-
-	cin >> m;
+	int m; cin >> m;
 
 	for (int k = 0; k < m; k++) {
 		int i, j;
