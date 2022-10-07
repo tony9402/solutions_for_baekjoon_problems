@@ -15,8 +15,8 @@ for _ in range(t):
     box.sort(reverse=True)
     result = 0
 
-    for i in range(len(box)):
-        j -= box[i]
+    for box in boxes:
+        j -= box
         result += 1
         if j <= 0:
             break
