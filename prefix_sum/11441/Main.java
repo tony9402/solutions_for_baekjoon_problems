@@ -1,6 +1,6 @@
 // Authored by : vswngjs
 // Co-authored by : tony9402
-// Link : http://boj.kr/d3b98dc013f74003a17cc04a1e6c55eb
+// Link : http://boj.kr/997461ea2c784c50952cf2c2fea3f797
 import java.util.*;
 import java.lang.*;
 import java.io.*;
