@@ -3,9 +3,12 @@
 # Link : http://boj.kr/160f85b47e1c4351b89ce2691c91fc6b
 import sys
 
-N, M = map(int, sys.stdin.readline().split())
-A = list(map(int, sys.stdin.readline().split()))
-B = list(map(int, sys.stdin.readline().split()))
+def input():
+    return sys.stdin.readline().rstrip()
+
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
 ans = []
 a_pointer, b_pointer = 0, 0 # A, B list pointer
 
@@ -24,4 +27,4 @@ while a_pointer != N or b_pointer != M:
             ans.append(B[b_pointer])
             b_pointer += 1
 
-print(*ans)
+print(' '.join(map(str, ans))) # print(*ans)
