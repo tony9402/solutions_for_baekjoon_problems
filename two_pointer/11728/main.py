@@ -1,11 +1,27 @@
 # Authored by : wassup37
 # Co-authored by : -
-# Link : http://boj.kr/728fce7a6eb24cb4a6807c891da4549b
+# Link : http://boj.kr/160f85b47e1c4351b89ce2691c91fc6b
 import sys
 
-N, M = sys.stdin.readline().split()
+N, M = map(int, sys.stdin.readline().split())
 A = list(map(int, sys.stdin.readline().split()))
 B = list(map(int, sys.stdin.readline().split()))
+ans = []
+a_pointer, b_pointer = 0, 0 # A, B list pointer
 
-for item in sorted(A + B):  # list를 합쳐서 정렬
-    print(item, end=' ')
+while a_pointer != N or b_pointer != M:
+    if a_pointer == N:
+        ans.append(B[b_pointer])
+        b_pointer += 1
+    elif b_pointer == M:
+        ans.append(A[a_pointer])
+        a_pointer += 1
+    else:
+        if A[a_pointer] < B[b_pointer]:
+            ans.append(A[a_pointer])
+            a_pointer += 1
+        else:
+            ans.append(B[b_pointer])
+            b_pointer += 1
+
+print(*ans)
