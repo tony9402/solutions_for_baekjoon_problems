@@ -1,42 +1,65 @@
 // Authored by : vswngjs
 // Co-authored by : tony9402
 // Link : http://boj.kr/d3b98dc013f74003a17cc04a1e6c55eb
-
+import java.util.*;
+import java.lang.*;
 import java.io.*;
+
 public class Main {
-    public static void main(String [] args) throws  IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) {
+        FastReader rd = new FastReader();
+        
+        int N = rd.nextInt();
+        int[] prefix_sum = new int[N + 1];
 
-        int number = Integer.parseInt(br.readLine());
-
-        String [] numbers = br.readLine().split(" ");
-
-        int [] multi_plus = new int[numbers.length];
-
-        multi_plus[0] = Integer.parseInt(numbers[0]);
-        for(int i=1; i<numbers.length; i++){                              // multi_plus : 누적합을 저장하는 리스트
-            multi_plus[i] = multi_plus[i-1] + Integer.parseInt(numbers[i]);
+        for(int i = 1; i <= N; ++i) {
+            prefix_sum[i] = prefix_sum[i - 1] + rd.nextInt();
         }
 
-        int testcase = Integer.parseInt(br.readLine());                   // testcase 만큼 반복
+        int testcase = rd.nextInt();
 
-        for(int j=0; j<testcase; j++){
-            int result =0;
-            String [] part = br.readLine().split(" ");
-            int start = Integer.parseInt(part[0])-2;                      // start 인덱스 계산
-            int end = Integer.parseInt(part[1])-1;                        // end 인덱스 계산
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < testcase; ++i) {
+            int s = rd.nextInt();
+            int e = rd.nextInt();
+            sb.append(prefix_sum[e] - prefix_sum[s - 1]);
+            sb.append('\n');
+        }
+        System.out.println(sb);
+    }
 
-            if(start<0){
-                result = multi_plus[end];
-            }else{
-                result = multi_plus[end] - multi_plus[start];
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while(st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-
-            bw.write(Integer.toString(result));
-            bw.newLine();
+            return st.nextToken();
         }
-        bw.close();
 
+        int nextInt() { return Integer.parseInt(next()); }
+        long nextLong() { return Long.parseLong(next()); }
+        double nextDouble() { return Double.parseDouble(next()); }
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
     }
 }
