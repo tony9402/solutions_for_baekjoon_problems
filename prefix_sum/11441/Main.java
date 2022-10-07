@@ -2,7 +2,6 @@
 // Co-authored by : tony9402
 // Link : http://boj.kr/d3b98dc013f74003a17cc04a1e6c55eb
 
-package temp;
 import java.io.*;
 public class Main {
     public static void main(String [] args) throws  IOException{
