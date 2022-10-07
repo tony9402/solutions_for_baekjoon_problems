@@ -1,18 +1,21 @@
 # Authored by : gd30220
 # Co-authored by : -
 # Link : http://boj.kr/fb3874925c8049e58f475817595d442a
+import sys
 
+def input():
+    return sys.stdin.readline().rstrip()
 
-t = int(input())
-for _ in range(t):
+testcase = int(input())
+for _ in range(testcase):
     j, n = map(int, input().split())
 
-    box = []
+    boxes = []
     for _ in range(n):
         r, c = map(int, input().split())
-        box.append(r * c)
+        boxes.append(r * c)
 
-    box.sort(reverse=True)
+    boxes.sort(reverse=True)
     result = 0
 
     for box in boxes:
@@ -22,4 +25,3 @@ for _ in range(t):
             break
 
     print(result)
-
