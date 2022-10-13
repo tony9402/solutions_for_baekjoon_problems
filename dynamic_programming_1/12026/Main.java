@@ -9,13 +9,13 @@ public class Main {
 
         int N = rd.nextInt();
         String s = rd.nextLine();
-        int [] dp = new int[N];     // 필요한 에너지 양의 최솟값을 담는 배열 dp
-        Arrays.fill(dp, -1);    // dp 배열을 -1로 초기화하여 dp[i]가 -1이면 도착이 불가능한  칸임을 표현
+        int [] dp = new int[N];    // 필요한 에너지 양의 최솟값을 담는 배열 dp
+        Arrays.fill(dp, -1);    // dp 배열을 -1로 초기화하여 dp[i]가 -1이면 도착이 불가능한 칸임을 표현
         // 현재 보도블럭 기준 이전 보도블럭이 무엇인지를 판별하기 위한 map
         HashMap map = new HashMap<Character, Character>();
-        map.put('B', 'J');      // 현재 보도블럭이 'B'이면 직전 블럭은 'J'여야함.
-        map.put('O', 'B');      // 현재 보도블럭이 'O'이면 직전 블럭은 'B'여야함.
-        map.put('J', 'O');      // 현재 보도블럭이 'J'이면 직전 블럭은 'O'여야함.
+        map.put('B', 'J');    // 현재 보도블럭이 'B'이면 직전 블럭은 'J'여야함.
+        map.put('O', 'B');    // 현재 보도블럭이 'O'이면 직전 블럭은 'B'여야함.
+        map.put('J', 'O');    // 현재 보도블럭이 'J'이면 직전 블럭은 'O'여야함.
 
         dp[0] = 0;
 
@@ -33,8 +33,8 @@ public class Main {
             }
         }
         System.out.println(dp[N - 1]);
-
     }
+
     static class FastReader {
         BufferedReader br;
         StringTokenizer st;
