@@ -19,26 +19,21 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    
-    int n, m;
-    
-    cin >> n >> m;
-    
+
+    int n, m; cin >> n >> m;
+
     for (int i = 0; i < m; i++) {
-        int a, b;
-        
-        cin >> a >> b;
-        
+        int a, b; cin >> a >> b;
         indeg[b]++;
         g[a].push_back(b);
     }
-    
+
     for (int i = 1; i <= n; i++) {
         if (indeg[i]) continue;
         ans[i] = 1;
         dfs(i);
     }
-    
+
     for (int i = 1; i <= n; i++)
         cout << ans[i] << ' ';
 }
