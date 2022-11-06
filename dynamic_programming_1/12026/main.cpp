@@ -20,38 +20,12 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < i; j++) {
-            if (block[i] == 'B') {
-                if (block[j] == 'J') {
-                    if (dp[j] == INT_MAX) {
-                        continue;
-                    }
-                    int dis = (i - j) * (i - j) + dp[j];
-                    if (dp[i] > dis) {
-                        dp[i] = dis;
-                    }
-                }
-            }
-            else if (block[i] == 'O') {
-                if (block[j] == 'B') {
-                    if (dp[j] == INT_MAX) {
-                        continue;
-                    }
-                    int dis = (i - j) * (i - j) + dp[j];
-                    if (dp[i] > dis) {
-                        dp[i] = dis;
-                    }
-                }
-            }
-            else if (block[i] == 'J') {
-                if (block[j] == 'O') {
-                    if (dp[j] == INT_MAX) {
-                        continue;
-                    }
-                    int dis = (i - j) * (i - j) + dp[j];
-                    if (dp[i] > dis) {
-                        dp[i] = dis;
-                    }
-                }
+            if ((block[i] == 'B' && block[j] == 'J') || 
+                (block[i] == 'O' && block[j] == 'B') || 
+                (block[i] == 'J' && block[j] == 'O')) {
+                if (dp[j] == INT_MAX) continue;
+                int dis = (i - j) * (i - j) + dp[j];
+                if (dp[i] > dis) dp[i] = dis;
             }
         }
     }
