@@ -33,7 +33,7 @@ jobs:
             echo "SOLUTION_LANG=`head -1 label`" >> $GITHUB_ENV
         - name: add Label
           if: contains(github.event.pull_request.labels.*.name, 'Solution') == false
-          uses: actions/github-script@v4
+          uses: actions/github-script@v6
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
