@@ -3,9 +3,11 @@
 # Link : http://boj.kr/bc8f90e9f2c44bbaa6c565dc4ed6b838
 import sys
 
-read = lambda : sys.stdin.readline().rstrip()
-N = int(read())
-block = read()  # 블럭을 string 형태로 받음
+def input():
+    return sys.stdin.readline().rstrip()
+
+N = int(input())
+block = input()  # 블럭을 string 형태로 받음
 dp = [0] + [sys.maxsize] * N    # 각 블록으로 갈 때의 에너지 최솟값 저장을 위한 dp 배열
 prev = ''
 
