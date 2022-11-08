@@ -10,7 +10,7 @@ public class Main {
         int value = rd.nextInt();
         boolean prime[] = new boolean[1000001];
         for (int i = 2; i <= 1000000; i++) {
-            for (int j = i * 2; j <= 1000000; j +=i) {
+            for (int j = i * 2; j <= 1000000; j +=i) {              // 에라토스테네스의 체 방법으로 소수가 아닌 수 ==> true
                 prime[j] = true;
             }
         }
@@ -22,13 +22,13 @@ public class Main {
                 while(true) {
                     int sum = 0;
                     for (int j = 0; j < str.length(); j++) {
-                        sum += Math.pow(str.charAt(j) -'0', 2);
+                        sum += Math.pow(str.charAt(j) -'0', 2);          // 각 자리 수의 제곱을 더하는 과정, ASCII 코드를 이용
                     }
                     if(sum == 1) {
                         flag = true;
                         break;
                     }
-                    if(!set.contains(sum)){
+                    if(!set.contains(sum)){                             // 각 자리 수의 제곱을 한 값이 반복된다면 절대로 상근수가 될 수 없음.
                         set.add(sum);
                         str = String.valueOf(sum);
                     } else break;
