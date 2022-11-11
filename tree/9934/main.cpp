@@ -6,7 +6,6 @@
 using namespace std;
 
 int building_num[1024];
-bool visited[1024];
 
 void print_building(int start, int jump, int size) {
 	
